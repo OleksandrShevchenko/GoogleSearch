@@ -1,7 +1,7 @@
-package main;
+package pac;
 
-import browsers.*;
 import org.openqa.selenium.WebDriver;
+import pac.browsers.*;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -92,7 +92,7 @@ public class Driver {
             InputStream file = null;
             Properties prop = new Properties();
             try {
-                String propFileName = "GoogleSearch/src/main/resources/config.properties";
+                String propFileName = "src/main/resources/config.properties";
                 file = new FileInputStream(new File(propFileName).getAbsolutePath());
 
                 prop.load(file);

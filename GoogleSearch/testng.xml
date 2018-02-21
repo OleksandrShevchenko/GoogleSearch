@@ -2,7 +2,7 @@
 <suite name="Suite Starter" parallel="methods" thread-count="2">
   <test name="Test">
     <classes>
-      <class name="test.java.GoogleSearchTest"/>
+      <class name="GoogleSearchTest"/>
     </classes>
   </test>
 </suite>
