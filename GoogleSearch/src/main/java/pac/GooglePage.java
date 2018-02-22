@@ -54,7 +54,7 @@ public class GooglePage {
 		for (int index = 0; index < pageContent.size(); index++) {
 			domainValue = pageContent.get(index).getText();
 			if (domainValue.contains(searchDomainValue)) {
-				Log.info("[INFO] " + searchDomainValue + " was found on Page #" + index);
+				Log.info("[INFO] " + searchDomainValue + " was found on current page, link #" + index);
 				bFound = true;
 				break;
 			}

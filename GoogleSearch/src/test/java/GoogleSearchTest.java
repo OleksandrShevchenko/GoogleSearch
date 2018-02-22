@@ -6,7 +6,6 @@ public class GoogleSearchTest {
 
     @BeforeMethod
     public void setUp() {
-
         GooglePage.invokeHomePage();
     }
 
@@ -33,7 +32,7 @@ public class GoogleSearchTest {
     @Parameters({"phraseToSearch", "pagesCount", "domainToSearchFor"})
     public void test2_Search_For_Domain(@Optional("automation") String searchPattern,
                                         @Optional("5") String pagesCount,
-                                        @Optional("bbsautomation.com") String domainToSearchFor) {
+                                        @Optional("automationguild.com") String domainToSearchFor) {
 //                                                 testautomationday
 
         GooglePage.searchResultsInvoke(searchPattern);
