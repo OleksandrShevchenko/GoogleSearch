@@ -30,7 +30,7 @@ public class GoogleSearchTest {
 
     @Test(enabled = true)
     @Parameters({"phraseToSearch", "pagesCount", "domainToSearchFor"})
-    public void test2_Search_For_Domain(@Optional("automation") String searchPattern,
+    public void test_Search_For_Domain (@Optional("automation") String searchPattern,
                                         @Optional("5") String pagesCount,
                                         @Optional("automationguild.com") String domainToSearchFor) {
 //                                                 testautomationday
