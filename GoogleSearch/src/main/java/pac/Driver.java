@@ -5,7 +5,6 @@ import pac.browsers.*;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -48,31 +47,24 @@ public class Driver {
         if (webDriver.get() == null){
             BrowserType type = BrowserType.findByName(Prop.get("browser"));
             switch (type){
-                case CHROME:{
-                    setWebDriver(new Chrome().getDriver());
+                case CHROME:
+                    setChromeDriver();
                     break;
-                }
-                case OPERA:{
-                    setWebDriver(new Opera().getDriver());
+                case OPERA:
+                    setOperaDriver();
                     break;
-                }
-                case FIREFOX:{
-                    setWebDriver(new FireFox().getDriver());
+                case FIREFOX:
+                    setFireFoxDriver();
                     break;
-                }
-                case IE:{
-                    setWebDriver(new InternetExplorer().getDriver());
+                case IE:
+                    setIExplorerDriver();
                     break;
-                }
-                case SAFARI:{
-                    setWebDriver(new Safari().getDriver());
+                case SAFARI:
+                    setSafariDriver();
                     break;
-                }
-                case EDGE:{
-                    setWebDriver(new Edge().getDriver());
+                case EDGE:
+                    setEdgeDriver();
                     break;
-                }
-
             }
             webDriver.get().manage().timeouts().implicitlyWait(Long.parseLong(Prop.get("defaultImplicitWait")), TimeUnit.SECONDS);
             webDriver.get().manage().timeouts().pageLoadTimeout(Long.parseLong(Prop.get("pageLoadTimeout")),TimeUnit.SECONDS);
@@ -89,23 +81,14 @@ public class Driver {
     public static class Prop {
         public static String get(String property) {
             String out = "";
-            InputStream file = null;
             Properties prop = new Properties();
-            try {
-                String propFileName = "src/main/resources/config.properties";
-                file = new FileInputStream(new File(propFileName).getAbsolutePath());
-
+            String propFileName = "src/main/resources/config.properties";
+            try ( InputStream file = new FileInputStream(new File(propFileName).getAbsolutePath())) {
                 prop.load(file);
                 out = prop.getProperty(property);
             }
             catch (Exception e) {
-                System.out.println("Exception: " + e);
-            } finally {
-                try {
-                    file.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                System.err.println("Exception: " + e);
             }
             return out;
 
@@ -114,5 +97,24 @@ public class Driver {
     
     static void setWebDriver(WebDriver driver) {
         webDriver.set(driver);
+    }
+
+    private static void setChromeDriver   () {
+        setWebDriver(new Chrome().getDriver());
+    }
+    private static void setFireFoxDriver  () {
+        setWebDriver(new FireFox().getDriver());
+    }
+    private static void setOperaDriver    () {
+        setWebDriver(new Opera().getDriver());
+    }
+    private static void setIExplorerDriver() {
+        setWebDriver(new InternetExplorer().getDriver());
+    }
+    private static void setSafariDriver   () {
+        setWebDriver(new Safari().getDriver());
+    }
+    private static void setEdgeDriver     () {
+        setWebDriver(new Edge().getDriver());
     }
 }

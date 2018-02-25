@@ -15,8 +15,7 @@ public class Browser {
     }
 	
 	public static WebElement getElement (By webElement) {
-		WebElement out = Driver.getWebDriver().findElement(webElement);
-		return out;
+        return Driver.getWebDriver().findElement(webElement);
 	}
 	
     public static String getTitle(){

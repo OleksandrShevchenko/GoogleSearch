@@ -10,8 +10,8 @@ import java.util.List;
 
 public class GooglePage {
 
-    public static By searchFieldLocator = By.id("lst-ib");
-    public static By searchLinkLocator 	= By.xpath("//h3[@class='r']/a");
+    public static final By searchFieldLocator = By.id("lst-ib");
+    public static final By searchLinkLocator 	= By.xpath("//h3[@class='r']/a");
 
 	public static void invokeHomePage() {
 		Browser.open("https://www.google.com");

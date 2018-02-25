@@ -1,9 +1,7 @@
 package pac;
 
 import org.apache.log4j.Logger;
-
 import java.util.ArrayList;
-
 
 public class Log extends Logger {
 
