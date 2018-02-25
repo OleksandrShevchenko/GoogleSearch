@@ -15,18 +15,18 @@ public class Browser {
         Log.info(String.format("[INFO] Open browser with %s url adress", url));
         webDriver.get(url);
     }
-	
-	public static WebElement getElement (By webElement) {
+
+    public static WebElement getElement(By webElement) {
         return Driver.getWebDriver().findElement(webElement);
-	}
-	
-    public static String getTitle(){
+    }
+
+    public static String getTitle() {
         Log.info("[INFO] Get title from browser");
         return Driver.getWebDriver().getTitle();
     }
 
-    public static void quit(){
-        if (Driver.getWebDriver(false) != null){
+    public static void quit() {
+        if (Driver.getWebDriver(false) != null) {
             Log.info("Closing Browser");
             Driver.getWebDriver().quit();
             Driver.setWebDriver(null);

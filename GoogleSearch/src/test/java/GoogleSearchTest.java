@@ -19,7 +19,7 @@ public class GoogleSearchTest {
 
     @Test(enabled = true)
     @Parameters("phraseToSearch")
-	public void test_Search_First_Title (@Optional("automation") String phraseToSearch) {
+    public void test_Search_First_Title(@Optional("automation") String phraseToSearch) {
 
         GooglePage.searchResultsInvoke(phraseToSearch);
         GooglePage.navigateToFirstLink();
@@ -33,9 +33,9 @@ public class GoogleSearchTest {
 
     @Test(enabled = true)
     @Parameters({"phraseToSearch", "pagesCount", "domainToSearchFor"})
-    public void test_Search_For_Domain (@Optional("automation") String searchPattern,
-                                        @Optional("5") String pagesCount,
-                                        @Optional("automationguild.com") String domainToSearchFor) {
+    public void test_Search_For_Domain(@Optional("automation") String searchPattern,
+                                       @Optional("5") String pagesCount,
+                                       @Optional("automationguild.com") String domainToSearchFor) {
 //                                                 testautomationday
 
         GooglePage.searchResultsInvoke(searchPattern);

@@ -7,10 +7,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class InternetExplorer extends WebDriverGeneral {
 
-    public InternetExplorer(){
+    public InternetExplorer() {
         InternetExplorerDriverManager.getInstance().setup();
         DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
         capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-        this.setDriver(new InternetExplorerDriver(capabilities) );
+        this.setDriver(new InternetExplorerDriver(capabilities));
     }
 }

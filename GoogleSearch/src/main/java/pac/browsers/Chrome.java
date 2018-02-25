@@ -5,9 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pac.Driver.BrowserType;
 
-public class Chrome extends WebDriverGeneral{
+public class Chrome extends WebDriverGeneral {
 
-    public Chrome(){
+    public Chrome() {
         ChromeDriverManager.getInstance().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments(BrowserType.findByName(BrowserType.CHROME.getName()).getOptions());

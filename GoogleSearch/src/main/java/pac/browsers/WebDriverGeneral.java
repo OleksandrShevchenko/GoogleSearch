@@ -9,7 +9,7 @@ public abstract class WebDriverGeneral {
         this.driver = driver;
     }
 
-    public WebDriver getDriver(){
+    public WebDriver getDriver() {
         return this.driver;
     }
 

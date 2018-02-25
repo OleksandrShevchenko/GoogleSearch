@@ -23,19 +23,22 @@ public class Driver {
         SAFARI("Safari"),
         EDGE("Edge");
         private final Object[] values;
+
         BrowserType(Object... vals) {
             values = vals;
         }
+
         public String getName() {
             return (String) values[0];
         }
 
-        public String[] getOptions(){
+        public String[] getOptions() {
             return (String[]) values[1];
         }
-        public static BrowserType findByName(String name){
-            for(BrowserType v : values()){
-                if( v.getName().equals(name)){
+
+        public static BrowserType findByName(String name) {
+            for (BrowserType v : values()) {
+                if (v.getName().equals(name)) {
                     return v;
                 }
             }
@@ -43,10 +46,11 @@ public class Driver {
         }
 
     }
+
     public static WebDriver getWebDriver() {
-        if (webDriver.get() == null){
+        if (webDriver.get() == null) {
             BrowserType type = BrowserType.findByName(Prop.get("browser"));
-            switch (type){
+            switch (type) {
                 case CHROME:
                     setChromeDriver();
                     break;
@@ -67,12 +71,13 @@ public class Driver {
                     break;
             }
             webDriver.get().manage().timeouts().implicitlyWait(Long.parseLong(Prop.get("defaultImplicitWait")), TimeUnit.SECONDS);
-            webDriver.get().manage().timeouts().pageLoadTimeout(Long.parseLong(Prop.get("pageLoadTimeout")),TimeUnit.SECONDS);
+            webDriver.get().manage().timeouts().pageLoadTimeout(Long.parseLong(Prop.get("pageLoadTimeout")), TimeUnit.SECONDS);
         }
         return webDriver.get();
     }
-    public static WebDriver getWebDriver(boolean createNewDriver){
-        if (!createNewDriver){
+
+    public static WebDriver getWebDriver(boolean createNewDriver) {
+        if (!createNewDriver) {
             return webDriver.get();
         }
         return getWebDriver();
@@ -83,38 +88,42 @@ public class Driver {
             String out = "";
             Properties prop = new Properties();
             String propFileName = "src/main/resources/config.properties";
-            try ( InputStream file = new FileInputStream(new File(propFileName).getAbsolutePath())) {
+            try (InputStream file = new FileInputStream(new File(propFileName).getAbsolutePath())) {
                 prop.load(file);
                 out = prop.getProperty(property);
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 System.err.println("Exception: " + e);
             }
             return out;
 
         }
     }
-    
+
     static void setWebDriver(WebDriver driver) {
         webDriver.set(driver);
     }
 
-    private static void setChromeDriver   () {
+    private static void setChromeDriver() {
         setWebDriver(new Chrome().getDriver());
     }
-    private static void setFireFoxDriver  () {
+
+    private static void setFireFoxDriver() {
         setWebDriver(new FireFox().getDriver());
     }
-    private static void setOperaDriver    () {
+
+    private static void setOperaDriver() {
         setWebDriver(new Opera().getDriver());
     }
+
     private static void setIExplorerDriver() {
         setWebDriver(new InternetExplorer().getDriver());
     }
-    private static void setSafariDriver   () {
+
+    private static void setSafariDriver() {
         setWebDriver(new Safari().getDriver());
     }
-    private static void setEdgeDriver     () {
+
+    private static void setEdgeDriver() {
         setWebDriver(new Edge().getDriver());
     }
 }
