@@ -5,7 +5,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
+import org.apache.log4j.Logger;
 import java.util.List;
 
 public class GooglePage {
@@ -13,13 +13,15 @@ public class GooglePage {
     public static final By searchFieldLocator = By.id("lst-ib");
     public static final By searchLinkLocator 	= By.xpath("//h3[@class='r']/a");
 
+	private static final Logger Log = Logger.getLogger("console");
+
 	public static void invokeHomePage() {
 		Browser.open("https://www.google.com");
 		Log.info("[INFO] Trying to invoke Google page");
 		if (!Browser.getTitle().equals("Google")) {
 			throw new IllegalStateException("Google page was not opened!");
 		}
-		Log.info("INFO: Google page had been successfully loaded");
+		Log.info("[INFO] Google page had been successfully loaded");
 	}
 
 	public static void searchResultsInvoke(String text) {

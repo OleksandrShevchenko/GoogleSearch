@@ -1,8 +1,11 @@
 import org.testng.Assert;
 import org.testng.annotations.*;
+import org.apache.log4j.Logger;
 import pac.*;
 
 public class GoogleSearchTest {
+
+    private static final Logger Log = Logger.getLogger("console");
 
     @BeforeMethod
     public void setUp() {
