@@ -12,7 +12,7 @@ public class GoogleSearchTest {
         GooglePage.invokeHomePage();
     }
 
-    @AfterClass
+    @AfterMethod
     public static void cleanUp() {
         Browser.quit();
     }
@@ -27,7 +27,7 @@ public class GoogleSearchTest {
         String actualTitle = Browser.getTitle();
         Assert.assertTrue(actualTitle.toLowerCase().contains(phraseToSearch.toLowerCase()),
                 "Actual Title: " + actualTitle + " Expected Title: " + phraseToSearch);
-        Log.info("Testcase test_Search_First_Title was successfully completed!");
+        Log.info("[INFO] Testcase test_Search_First_Title was successfully completed!");
 
     }
 
