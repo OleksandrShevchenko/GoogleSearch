@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Driver {
     private static final ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
+    private static final String propFileName = "src/main/resources/config.properties";
 
     public enum BrowserType {
         CHROME("Chrome", new String[]{"--disable-extensions", "--allow-running-insecure-content",
@@ -87,7 +88,6 @@ public class Driver {
         public static String get(String property) {
             String out = "";
             Properties prop = new Properties();
-            String propFileName = "src/main/resources/config.properties";
             try (InputStream file = new FileInputStream(new File(propFileName).getAbsolutePath())) {
                 prop.load(file);
                 out = prop.getProperty(property);

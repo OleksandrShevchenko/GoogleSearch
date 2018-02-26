@@ -20,7 +20,7 @@ public class GooglePage {
         Browser.open("https://www.google.com");
         Log.info("[INFO] Trying to invoke Google page");
         if (!Browser.getTitle().equals("Google")) {
-            throw new IllegalStateException("Google page was not opened!");
+            throw new IllegalStateException("[ERROR] Google page was not opened!");
         }
         Log.info("[INFO] Google page had been successfully loaded");
     }
