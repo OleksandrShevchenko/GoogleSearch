@@ -35,8 +35,7 @@ public class GoogleSearchTest {
     @Parameters({"phraseToSearch", "pagesCount", "domainToSearchFor"})
     public void test_Search_For_Domain(@Optional("automation") String searchPattern,
                                        @Optional("5") String pagesCount,
-                                       @Optional("automationguild.com") String domainToSearchFor) {
-//                                                 testautomationday
+                                       @Optional("testautomationday.com") String domainToSearchFor) {
 
         GooglePage.searchResultsInvoke(searchPattern);
         Boolean domainFound = GooglePage.checkDomainExistsOnPages(domainToSearchFor, pagesCount);
